@@ -1,0 +1,82 @@
+:root {
+    --collapsible-background: #505050;
+    --footer-panel: #444444;
+    --collapsible-title: #58d7af;
+    --white: white;
+}
+
+html {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.top-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #126e51;
+}
+
+.content-container {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 75%;
+    min-height: calc(100vh - 95px);
+}
+
+.sub-header {
+    position: fixed;
+    height: 45px;
+    width: 75%;
+    left: 0;
+    top: 60px;
+    background: #383838;
+}
+
+.content-panel {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--collapsible-background);
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+}
+
+.right-side-bar {
+    display: flex;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    width: 25%;
+    background: var(--footer-panel);
+}
+
+.footer-panel {
+    display: flex;
+    height: 1536px;
+    background: var(--footer-panel);
+}
+
+.collapsible {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 53px;
+    background: var(--white);
+    z-index: 1000;
+}
