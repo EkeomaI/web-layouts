@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/project-02.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <title>Switch Button</title>
+</head>
+
+<body>
+
+
+    <div class="page-wrapper">
+        <div class="switch-container">
+            <h1>SpiralConnect</h1>
+            <div id="track" class="switch-track">
+                <div id="thumb" class="switch-thumb" aria-placeholder="Log In"></div>
+                <span id="switch-text" class="switch-text"></span>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <section id="part1" class="login">
+                <h1>Welcome back</h1>
+                <p>Log in to continue</p>
+                <div class="form-container">
+                    <form name="login" class="form-group" action="#">
+                        <input type="text" name="username" placeholder="username" autocomplete="off">
+                        <input type="password" name="password" placeholder="password">
+                        <button>Log In</button>
+                        <div class="register">Don't have an account?
+                            <a id="register" href="#register">Register</a>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section id="part3" class="registration">
+                <h1>Register</h1>
+                <div class="form-container">
+                    <form name="register" class="form-group" action="#">
+                        <input type="text" name="username" placeholder="username" autocomplete="off">
+                        <input type="password" name="password" placeholder="password">
+                        <input type="password" name="confirmPassword" placeholder="password">
+                        <button>Register</button>
+                        <div class="have-account">Have an account?
+                            <a id="login" href="#login">Log In</a>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section id="part2" class="home">
+
+                <div class="image-container">
+                    <img src="./assets/images/programming.jpg" alt="programming">
+                </div>
+                <a href="https://unsplash.com/photos/pjAH2Ax4uWk" target="_blank">by Charles Deluvio</a>
+            </section>
+        </div>
+        <footer>
+            <div class="footer">
+                2021 &copy;SpiralConnect
+            </div>
+        </footer>
+    </div>
+
+    <script src="./assets/project-02.js"></script>
+</body>
+
+</html>
