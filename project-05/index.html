@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.typekit.net/vco1otk.css">
+    <title>Log In Form</title>
+
+    <style>
+        *,
+        *::after {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: fira-sans-condensed, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            min-height: 100vh;
+            background: #ddd;
+            color: #383838;
+        }
+        
+        body * a {
+            text-decoration: none;
+            color: #505050;
+        }
+        
+        .content {
+            background-color: white;
+            width: 70vw;
+            padding: 3em;
+            box-shadow: 0 0 3em rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        
+        .form-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 40vw;
+            margin: 100px auto;
+            padding: 10px 25px;
+            border: 1px solid #128469;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .form-control {
+            --size: 30px;
+            height: var(--size);
+            padding: 3px;
+            position: relative;
+            border: 1px solid #128469;
+            background: #ddd;
+        }
+        
+        .password-field-container {
+            display: flex;
+            overflow: hidden;
+            transition: width 200ms ease-out;
+        }
+        
+        .text-input-container {
+            display: flex;
+            margin-bottom: 5px;
+        }
+        
+        .text-input-container .username__input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            border: 0;
+            padding: 0 0.6em;
+            line-height: calc(var(--size) - 3px);
+            width: 100%;
+            background: transparent;
+            transition: width 50ms ease-in-out;
+        }
+        
+        .password-field-container .password__input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            border: 0;
+            padding: 0 0.5em;
+            line-height: calc(var(--size) - 3px);
+            width: calc(100% - 30px);
+            background: transparent;
+            transition: width 50ms ease-in-out;
+        }
+        
+        .password-field-container .btn {
+            display: flex;
+            align-items: stretch;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            border: 0;
+            width: 25px;
+            line-height: calc(var(--size) - 3px);
+            background: transparent;
+            cursor: pointer;
+        }
+        
+        .password-field-container .eye-open {
+            width: 15px;
+        }
+        
+        .password-field-container .btn .eye-open::after {
+            content: url(./assets/images/eye-opened-lash.svg);
+        }
+        
+        .password-field-container .eye-open:hover::after {
+            filter: invert(40%) sepia(18%) saturate(2624%) hue-rotate(122deg) brightness(92%) contrast(86%);
+        }
+        
+        .password-field-container .password__input:focus {
+            outline: 0;
+        }
+        
+        .text-input-container .username__input:focus {
+            outline: 0;
+        }
+        
+        .password-field-container .password__toggle:focus {
+            outline: 0;
+        }
+        
+        #password_toggle:checked+.password-field-container .btn .eye-open.active::after {
+            content: url(./assets/images/eye-closed-lash.svg);
+        }
+        
+        #password_toggle {
+            display: none;
+        }
+        
+        .password-field-container:focus-within {
+            border-radius: 30px;
+        }
+        
+        .text-input-container:focus-within {
+            border-radius: 30px;
+        }
+        
+        .password-field-container .password__input:focus-within {
+            border-style: ridge;
+        }
+        
+        .text-input-container .username__input:focus-within {
+            border-style: ridge;
+        }
+        
+        .btn-container {
+            display: flex;
+            align-items: stretch;
+            position: relative;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        
+        .btn-container button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            border: 0;
+            outline: 0;
+            height: var(--size);
+            width: 100%;
+            background: transparent;
+            text-transform: uppercase;
+            cursor: pointer;
+            color: slategrey;
+        }
+        
+        .btn-container:focus-within {
+            border-radius: 30px;
+        }
+        
+        .top-form-description h1,
+        .top-form-description p {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .top-form-description {
+            padding: 20px 0;
+        }
+        
+        .btn-container button:hover {
+            color: #128469;
+            background: rgb(244, 244, 244);
+        }
+        
+        .bottom-form-description {
+            padding-top: 20px;
+        }
+        
+        @media only screen and (max-width:600px) {
+            .top-form-description h1 {
+                font-size: 120%;
+            }
+            body {
+                font-size: 60%;
+            }
+            .form-wrapper {
+                width: 55vw;
+                min-height: 80vh;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="form-wrapper">
+            <div class="top-form-description">
+                <h1>Welcome back</h1>
+                <p>Log in to continue.</p>
+            </div>
+            <form action="#">
+                <div class="form-control text-input-container">
+                    <input class="username__input" type="text" name="username" id="username" aria-placeholder="username" aria-label="enter username" autocomplete="off" placeholder="username">
+                </div>
+                <input type="checkbox" name="password__toggle" id="password_toggle">
+                <div class="form-control password-field-container">
+                    <input class="password__input" type="password" name="password" id="password" aria-placeholder="password" aria-label="enter password" placeholder="password">
+                    <label for="password_toggle" id="toggle_btn" class="btn"> <div class="eye-open active"></div></label>
+                </div>
+                </label>
+                <div class="form-control btn-container"><button type="submit" id="login">Log In</button></div>
+            </form>
+
+            <div class="bottom-form-description">
+                Don't have an account?
+                <a href="#register">Register</a>
+            </div>
+        </div>
+    </div>
+    <div class="ball-bounce-container">
+
+    </div>
+    <script>
+        var toggleBtn = document.getElementById("toggle_btn")
+        var passwordInput = document.getElementById("password")
+        var loginBtn = document.getElementById("login")
+        toggleBtn.addEventListener("click", function() {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text"
+            } else {
+                passwordInput.type = "password";
+            }
+        })
+
+
+
+        loginBtn.addEventListener("click", function(evt) {
+            evt.preventDefault()
+        })
+    </script>
+</body>
+
+</html>
